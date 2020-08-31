@@ -2,8 +2,10 @@ package com.app.dao;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
+@EntityScan(basePackages = "com.app.entities")
 public class DaoApplication {
 
 	public static void main(String[] args) {
