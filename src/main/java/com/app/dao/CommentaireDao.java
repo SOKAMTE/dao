@@ -6,12 +6,19 @@
 package com.app.dao;
 
 import com.app.entities.Commentaire;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 /**
  *
  * @author kouam
  */
 public interface CommentaireDao extends JpaRepository<Commentaire, Long>{
+    
+    @Query("select cmt from commentaire cmt where cmt.message like :x")
+    public Page<Commentaire> searchCommentaire(@Param("x")String cCmt, Pageable pageable);
     
 }
